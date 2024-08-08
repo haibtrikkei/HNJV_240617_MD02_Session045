@@ -57,6 +57,12 @@ public class Categories {
         catalogStatus = inputCatalogStatus(scanner);
     }
 
+    public void inputDataUpdate(Scanner scanner, Categories[] arrCategories){
+        catalogName = inputCatalogName(scanner, arrCategories);
+        descriptions = inputDescription(scanner);
+        catalogStatus = inputCatalogStatus(scanner);
+    }
+
     private Boolean inputCatalogStatus(Scanner scanner) {
         System.out.println("Nhập catalog status: ");
         while (true){
@@ -93,13 +99,13 @@ public class Categories {
         if(index==0){
             return 1;
         }else{
-            return arrCategories[index].getCatalogId()+1;
+            return arrCategories[index-1].getCatalogId()+1;
         }
     }
 
     public boolean isExistedCatalogName(String catalogName, Categories[] arrCategories){
         for(Categories c : arrCategories){
-            if(c.getCatalogName().equalsIgnoreCase(catalogName.trim())){
+            if(c!=null && c.getCatalogName().equalsIgnoreCase(catalogName.trim())){
                 return true;
             }
         }

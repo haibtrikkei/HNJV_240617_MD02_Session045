@@ -220,5 +220,14 @@ public class Product {
         }
         return false;
     }
+
+    public void displayData(){
+        SimpleDateFormat sf = new SimpleDateFormat("dd/MM/yyyy");
+        System.out.printf("%-106s\n","----------------------------------------------------------------------------------------------------------");
+        System.out.printf("|%-6s|%-30s|%-7.0f|%-30s|%-10s|%-5d|%-10s|\n",productId,productName,price,description,sf.format(created),catalogId,getProductStatus()==0?"Đang bán":(getProductStatus()==1?"Hết hàng":"Không bán"));
+    }
+    public void endTable(){
+        System.out.printf("%-106s\n","----------------------------------------------------------------------------------------------------------");
+    }
 }
 
